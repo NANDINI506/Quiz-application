@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+
+        <!-- Category Selection -->
+        <div id="categorySelection" class="screen">
+            <h1>Select a Category</h1>
+            <div class="categories">
+                <!-- Categories will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="screen hidden">
+            <div class="quiz-header">
+                <div class="level">Level: <span id="currentLevel">1</span></div>
+                <div class="timer-container">
+                    <div class="timer-bar">
+                        <div class="timer-progress"></div>
+                    </div>
+                    <span class="timer-text">15</span>
+                </div>
+            </div>
+            <div class="question-container">
+                <h2 id="questionText"></h2>
+                <div class="options">
+                    <!-- Options will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen hidden">
+            <h1>Quiz Results</h1>
+            <div class="results-container">
+                <p>Category: <span id="resultCategory"></span></p>
+                <p>Score: <span id="resultScore"></span></p>
+                <p>Accuracy: <span id="resultAccuracy"></span>%</p>
+                <p>Time Taken: <span id="resultTime"></span> seconds</p>
+            </div>
+            <div class="result-buttons">
+                <button id="restartBtn">Restart Quiz</button>
+                <button id="leaderboardBtn">View Leaderboard</button>
+            </div>
+        </div>
+
+        <!-- Leaderboard Screen -->
+        <div id="leaderboardScreen" class="screen hidden">
+            <h1>Leaderboard</h1>
+            <div class="leaderboard-container">
+                <table id="leaderboardTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Category</th>
+                            <th>Score</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Leaderboard entries will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <button id="backToHomeBtn">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Audio elements for sound effects -->
+    <audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
+    <audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
