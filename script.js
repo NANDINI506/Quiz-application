@@ -1,6 +1,4 @@
-// ==============================
-// 📌 DOM Elements - Grabbing all elements we need from the HTML
-// ==============================
+// DOM Elements - Grabbing all elements we need from the HTML
 
 // Different screen containers
 const categorySelection = document.getElementById('categorySelection');
@@ -31,9 +29,8 @@ const resultTime = document.getElementById('resultTime');
 const leaderboardTable = document.getElementById('leaderboardTable').querySelector('tbody');
 
 
-// ==============================
-// 🧠 Game State - Variables that track the quiz progress
-// ==============================
+// Game State - Variables that track the quiz progress
+
 
 let currentCategory = '';         // Stores the chosen category
 let currentLevelNum = 1;          // Tracks if we're in level 1 or 2
@@ -47,17 +44,15 @@ let startTime;                    // Timestamp when the quiz starts
 let shuffledQuestions = [];       // Stores shuffled questions
 
 
-// ==============================
-// 🔊 Sound Effects
-// ==============================
+//sound Effects
+
 
 const correctSound = document.getElementById('correctSound');
 const wrongSound = document.getElementById('wrongSound');
 
 
-// ==============================
-// 🚀 Initialize App - This runs when the page loads
-// ==============================
+// Initialize App - This runs when the page loads
+
 
 function init() {
     setupEventListeners();   // Setup button/key handlers
@@ -67,9 +62,8 @@ function init() {
 }
 
 
-// ==============================
-// 🖱️ Event Listeners - Handle user actions
-// ==============================
+//Event Listeners - Handle user actions
+
 
 function setupEventListeners() {
     // Theme switcher
@@ -85,9 +79,8 @@ function setupEventListeners() {
 }
 
 
-// ==============================
-// 🌗 Theme Management (Dark/Light Mode)
-// ==============================
+// theme Management (Dark/Light Mode)
+
 
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -104,9 +97,8 @@ function toggleTheme() {
 }
 
 
-// ==============================
-// 📚 Category Selection - Show available quiz categories
-// ==============================
+//Category Selection - Show available quiz categories
+
 
 function populateCategories() {
     categoriesContainer.innerHTML = ''; // Clear previous
@@ -120,9 +112,7 @@ function populateCategories() {
 }
 
 
-// ==============================
-// 🎮 Quiz Logic - Core quiz functions
-// ==============================
+// Quiz Logic - Core quiz functions
 
 function startQuiz(category) {
     // Reset game state
@@ -238,9 +228,9 @@ function endQuiz() {
 }
 
 
-// ==============================
-// 🏆 Leaderboard Management
-// ==============================
+
+//  Leaderboard Management
+
 
 function updateLeaderboard(score, timeTaken) {
     const leaderboard = JSON.parse(localStorage.getItem('leaderboard') || '[]');
@@ -281,9 +271,9 @@ function loadLeaderboard() {
 }
 
 
-// ==============================
-// 🔀 Screen Management - Show/hide screens
-// ==============================
+
+// Screen Management - Show/hide screens
+
 
 function showScreen(screen) {
     [categorySelection, quizScreen, resultsScreen, leaderboardScreen].forEach(s => {
@@ -306,17 +296,8 @@ function restartQuiz() {
 }
 
 
-// ==============================
-// 🔧 Utility Functions
-// ==============================
-
-// Random shuffle using Fisher-Yates algorithm
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+    return array.sort(() => Math.random() - 0.5);
 }
 
 // Use number keys (1-4) to select options
@@ -332,9 +313,5 @@ function handleKeyboardInput(e) {
     }
 }
 
-
-// ==============================
-// 🔁 App Start - Fire up the app
-// ==============================
 
 init(); // Run everything!
