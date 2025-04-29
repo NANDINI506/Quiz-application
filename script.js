@@ -228,9 +228,7 @@ function endQuiz() {
 }
 
 
-
 //  Leaderboard Management
-
 
 function updateLeaderboard(score, timeTaken) {
     const leaderboard = JSON.parse(localStorage.getItem('leaderboard') || '[]');
@@ -270,10 +268,7 @@ function loadLeaderboard() {
     });
 }
 
-
-
 // Screen Management - Show/hide screens
-
 
 function showScreen(screen) {
     [categorySelection, quizScreen, resultsScreen, leaderboardScreen].forEach(s => {
